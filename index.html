@@ -1,454 +1,236 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Shivang Dubey - Portfolio</title>
-  <meta name="author" content="Shivang Dubey" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Shivang Dubey - AI enthusiast, researcher, and developer specializing in computer vision, medical imaging, and machine learning." />
+  <meta charset="UTF-8">
+  <title>Shivang Dubey</title>
+  <meta name="author" content="Shivang Dubey">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Shivang Dubey - AI enthusiast, researcher, and developer.">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🚀</text></svg>">
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-
-    /* ===== Professional Theme (Teal/Blue with neutral grays) ===== */
-    :root {
-      /* Light theme */
-      --bg-primary:#f7f7f8;
-      --bg-secondary:#ffffff;
-      --text-primary:#111827;      /* gray-900 */
-      --text-secondary:#475569;    /* slate-600 */
-      --accent:#0f766e;            /* teal-700 */
-      --accent-hover:#115e59;      /* teal-800 */
-      --card-bg:#ffffff;
-      --card-shadow:0 6px 16px rgba(0,0,0,.08);
-      --border-color:#e5e7eb;      /* gray-200 */
-      --gradient-1:linear-gradient(135deg,#0ea5e9 0%,#14b8a6 100%); /* cyan -> teal */
-      --gradient-2:linear-gradient(135deg,#93c5fd 0%,#67e8f9 100%); /* soft blue -> cyan */
-    }
-    [data-theme="dark"]{
-      /* Dark theme */
-      --bg-primary:#0b1220;        /* deep navy */
-      --bg-secondary:#0f172a;      /* slate-900 */
-      --text-primary:#e5e7eb;      /* gray-200 */
-      --text-secondary:#94a3b8;    /* slate-400 */
-      --accent:#14b8a6;            /* teal-500 */
-      --accent-hover:#0d9488;      /* teal-600 */
-      --card-bg:#111827;           /* gray-900 */
-      --card-shadow:0 6px 16px rgba(0,0,0,.35);
-      --border-color:#1f2937;      /* gray-800 */
-      --gradient-1:linear-gradient(135deg,#22d3ee 0%,#14b8a6 100%);
-      --gradient-2:linear-gradient(135deg,#60a5fa 0%,#22d3ee 100%);
-    }
-
-    body {
-      font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,sans-serif;
-      background:var(--bg-primary); color:var(--text-primary); line-height:1.6; transition:all .3s ease; overflow-x:hidden;
-    }
-
-    /* Animated Background (subtle) */
-    .bg-animation{ position:fixed; inset:0; z-index:-1; opacity:.04; background:linear-gradient(45deg,var(--accent) 25%,transparent 25%,transparent 75%,var(--accent) 75%,var(--accent)),linear-gradient(45deg,var(--accent) 25%,transparent 25%,transparent 75%,var(--accent) 75%,var(--accent)); background-size:30px 30px; background-position:0 0,15px 15px; animation:bgShift 20s linear infinite; }
-    @keyframes bgShift { 0%{background-position:0 0,15px 15px} 100%{background-position:30px 30px,45px 45px} }
-
-    /* Navigation */
-    .navbar{ position:fixed; top:0; width:100%; background:var(--card-bg); backdrop-filter:blur(10px); box-shadow:var(--card-shadow); z-index:1000; padding:1rem 2rem; display:flex; justify-content:space-between; align-items:center; transition:all .3s ease; border-bottom:1px solid var(--border-color); }
-    .nav-links{ display:flex; gap:2rem; list-style:none; }
-    .nav-links a{ color:var(--text-primary); text-decoration:none; font-weight:600; letter-spacing:.2px; transition:color .3s ease; position:relative; }
-    .nav-links a::after{ content:""; position:absolute; bottom:-5px; left:0; width:0; height:2px; background:var(--accent); transition:width .3s ease; }
-    .nav-links a:hover::after{ width:100%; }
-    .nav-links a.active{ color:var(--accent); }
-    .nav-links a.active::after{ width:100%; }
-
-    /* Theme Toggle */
-    .theme-toggle{ background:none; border:2px solid var(--accent); border-radius:50px; padding:8px 16px; cursor:pointer; display:flex; align-items:center; gap:8px; transition:all .3s ease; color:var(--text-primary); font-weight:600; }
-    .theme-toggle:hover{ background:var(--accent); color:#fff; transform:scale(1.05); }
-    .theme-icon{ font-size:1.2rem; transition:transform .3s ease; }
-    .theme-toggle:hover .theme-icon{ transform:rotate(180deg); }
-
-    /* Container */
-    .container{ max-width:1200px; margin:0 auto; padding:120px 20px 40px; }
-
-    /* Hero */
-    .hero{ display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:center; min-height:500px; margin-bottom:4rem; animation:fadeInUp 1s ease; }
-    @keyframes fadeInUp{ from{opacity:0; transform:translateY(30px)} to{opacity:1; transform:translateY(0)} }
-    .hero-content h1{ font-size:3.5rem; margin-bottom:1rem; background:var(--gradient-1); -webkit-background-clip:text; -webkit-text-fill-color:transparent; animation:gradientShift 6s ease infinite; }
-    @keyframes gradientShift{ 0%,100%{ filter:hue-rotate(0deg)} 50%{ filter:hue-rotate(20deg)} }
-    .hero-content .tagline{ font-size:1.25rem; color:var(--text-secondary); margin-bottom:1.25rem; }
-    .hero-content p{ color:var(--text-secondary); margin-bottom:1.1rem; line-height:1.8; }
-    .hero-image{ position:relative; display:flex; justify-content:center; align-items:center; }
-    .hero-image img{ width:300px; height:300px; border-radius:50%; object-fit:cover; border:5px solid var(--accent); box-shadow:0 20px 40px rgba(0,0,0,.12); transition:all .3s ease; position:relative; z-index:2; }
-    .hero-image::before{ content:""; position:absolute; width:320px; height:320px; border-radius:50%; background:var(--gradient-1); opacity:.25; animation:pulse 3s ease infinite; z-index:1; }
-    @keyframes pulse{ 0%{transform:scale(1); opacity:.25} 50%{transform:scale(1.06); opacity:.12} 100%{transform:scale(1); opacity:.25} }
-    .hero-image:hover img{ transform:scale(1.03); }
-
-    /* Social */
-    .social-links{ display:flex; gap:1rem; margin-top:2rem; flex-wrap:wrap; }
-    .social-links a{ display:inline-flex; align-items:center; gap:.5rem; padding:.7rem 1.2rem; background:var(--card-bg); border:2px solid var(--accent); border-radius:50px; color:var(--accent); text-decoration:none; font-weight:600; transition:all .3s ease; }
-    .social-links a:hover{ background:var(--accent); color:#fff; transform:translateY(-3px); box-shadow:0 10px 20px rgba(20,184,166,.25); }
-
-    /* Sections */
-    .section{ margin-bottom:4rem; animation:fadeIn 1s ease; }
-    @keyframes fadeIn{ from{opacity:0} to{opacity:1} }
-    .section-header{ text-align:center; margin-bottom:3rem; }
-    .section-header h2{ font-size:2.25rem; margin-bottom:1rem; position:relative; display:inline-block; }
-    .section-header h2::after{ content:""; position:absolute; bottom:-10px; left:50%; transform:translateX(-50%); width:64px; height:4px; background:var(--gradient-1); border-radius:2px; }
-
-    /* Projects */
-    .projects-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(350px,1fr)); gap:2rem; }
-    .project-card{ background:var(--card-bg); border-radius:14px; overflow:hidden; box-shadow:var(--card-shadow); transition:all .3s ease; position:relative; border:1px solid var(--border-color); }
-    .project-card::before{ content:""; position:absolute; top:0; left:0; width:100%; height:4px; background:var(--gradient-1); transform:scaleX(0); transform-origin:left; transition:transform .3s ease; }
-    .project-card:hover::before{ transform:scaleX(1); }
-    .project-card:hover{ transform:translateY(-8px); box-shadow:0 18px 36px rgba(0,0,0,.12); }
-    .project-image{ width:100%; height:200px; object-fit:cover; background:var(--gradient-2); display:flex; align-items:center; justify-content:center; font-size:3rem; color:#083344; }
-    .project-content{ padding:1.4rem; }
-    .project-content h3{ font-size:1.25rem; margin-bottom:.7rem; color:var(--text-primary); }
-    .project-content p{ color:var(--text-secondary); margin-bottom:1rem; line-height:1.65; }
-    .project-links{ display:flex; gap:1rem; }
-    .project-links a{ color:var(--accent); text-decoration:none; font-weight:600; display:flex; align-items:center; gap:.3rem; transition:all .3s ease; }
-    .project-links a:hover{ transform:translateX(5px); }
-
-    /* Timeline */
-    .timeline{ position:relative; padding:2rem 0; }
-    .timeline::before{ content:""; position:absolute; left:50%; transform:translateX(-50%); width:2px; height:100%; background:var(--gradient-1); }
-    .timeline-item{ position:relative; margin-bottom:3rem; width:45%; animation:slideIn .6s ease; }
-    @keyframes slideIn{ from{opacity:0; transform:translateX(-50px)} to{opacity:1; transform:translateX(0)} }
-    .timeline-item:nth-child(even){ margin-left:auto; animation:slideInRight .6s ease; }
-    @keyframes slideInRight{ from{opacity:0; transform:translateX(50px)} to{opacity:1; transform:translateX(0)} }
-    .timeline-item::before{ content:""; position:absolute; width:20px; height:20px; background:var(--accent); border-radius:50%; top:20px; }
-    .timeline-item:nth-child(odd)::before{ right:-60px; }
-    .timeline-item:nth-child(even)::before{ left:-60px; }
-    .timeline-content{ background:var(--card-bg); padding:1.5rem; border-radius:10px; box-shadow:var(--card-shadow); transition:all .3s ease; border:1px solid var(--border-color); }
-    .timeline-content:hover{ transform:scale(1.02); box-shadow:0 10px 30px rgba(0,0,0,.12); }
-    .timeline-content h3{ color:var(--text-primary); margin-bottom:.5rem; }
-    .timeline-date{ color:var(--accent); font-weight:700; margin-bottom:.5rem; }
-
-    /* Skills */
-    .skills-container{ display:grid; grid-template-columns:repeat(auto-fit,minmax(120px,1fr)); gap:1.5rem; margin-top:2rem; }
-    .skill-item{ background:var(--card-bg); padding:1.5rem; border-radius:10px; text-align:center; box-shadow:var(--card-shadow); transition:all .3s ease; cursor:pointer; border:1px solid var(--border-color); }
-    .skill-item:hover{ transform:translateY(-5px) scale(1.05); box-shadow:0 10px 20px rgba(0,0,0,.12); background:var(--gradient-1); color:#fff; }
-    .skill-icon{ font-size:2rem; margin-bottom:.5rem; }
-
-    /* Footer */
-    .footer{ text-align:center; padding:2rem; margin-top:4rem; border-top:1px solid var(--border-color); color:var(--text-secondary); }
-
-    /* Responsive */
-    @media (max-width:768px){
-      .navbar{ padding:1rem; }
-      .nav-links{ display:none; }
-      .hero{ grid-template-columns:1fr; text-align:center; }
-      .hero-content h1{ font-size:2.5rem; }
-      .hero-image{ margin-top:2rem; }
-      .timeline::before{ left:30px; transform:none; }
-      .timeline-item{ width:100%; padding-left:60px; }
-      .timeline-item:nth-child(even){ margin-left:0; }
-      .timeline-item::before{ left:20px !important; right:auto !important; }
-      .projects-grid{ grid-template-columns:1fr; }
-    }
-
-    /* Scroll to top */
-    .scroll-top{ position:fixed; bottom:30px; right:30px; background:var(--accent); color:#fff; width:50px; height:50px; border-radius:50%; display:flex; align-items:center; justify-content:center; cursor:pointer; opacity:0; visibility:hidden; transition:all .3s ease; z-index:999; border:none; box-shadow:0 8px 18px rgba(0,0,0,.18); }
-    .scroll-top.visible{ opacity:1; visibility:visible; }
-    .scroll-top:hover{ background:var(--accent-hover); transform:translateY(-5px); }
-
-    /* Loader */
-    .loader{ position:fixed; inset:0; background:var(--bg-primary); display:flex; align-items:center; justify-content:center; z-index:9999; transition:opacity .5s ease; }
-    .loader.hidden{ opacity:0; pointer-events:none; }
-    .loader-circle{ width:50px; height:50px; border:4px solid var(--border-color); border-top-color:var(--accent); border-radius:50%; animation:spin 1s linear infinite; }
-    @keyframes spin{ to{ transform:rotate(360deg) } }
-
-    /* Reduced Motion */
-    @media (prefers-reduced-motion: reduce){
-      .bg-animation, .hero, .section, .project-card, .timeline-item, .loader-circle{ animation:none !important; }
-      .theme-toggle:hover .theme-icon{ transform:none; }
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Loading Screen -->
-  <div class="loader" id="loader" aria-hidden="true"><div class="loader-circle" role="status" aria-label="Loading"></div></div>
 
-  <!-- Animated Background -->
-  <div class="bg-animation" aria-hidden="true"></div>
-
-  <!-- Navigation -->
-  <nav class="navbar" role="navigation" aria-label="Primary">
-    <div class="nav-brand">
-      <h3 style="margin:0; background:var(--gradient-1); -webkit-background-clip:text; -webkit-text-fill-color:transparent;">SD</h3>
-    </div>
-    <ul class="nav-links">
-      <li><a href="#home">Home</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#experience">Experience</a></li>
-      <li><a href="#skills">Skills</a></li>
-    </ul>
-    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
-      <span class="theme-icon" aria-hidden="true">🌙</span>
-      <span>Dark</span>
-    </button>
-  </nav>
-
-  <!-- Main Container -->
   <div class="container">
-    <!-- Hero -->
-    <section id="home" class="hero" aria-label="Intro">
-      <div class="hero-content">
-        <h1>Shivang Dubey</h1>
-        <p class="tagline">AI Enthusiast | Developer | Researcher</p>
-        <p>
-          I'm an Associate at <strong>ZS</strong>, passionate about leveraging AI for real-world applications.
-          With a background in Electronics and Communication Engineering from Guru Gobind Singh Indraprastha University,
-          I specialize in computer vision, medical imaging, and anomaly detection.
-        </p>
-        <p>
-          Always exploring cutting-edge AI technologies and their applications in solving complex problems.
-          When not coding, you'll find me reading, weightlifting, gaming, or exploring the latest tech gadgets.
-        </p>
-        <div class="social-links">
-          <a href="mailto:shivangdubey2001@gmail.com">📧 Email</a>
-          <a href="data/Resume_ShivangDubey.pdf" target="_blank" rel="noopener">📄 Resume</a>
-          <a href="https://medium.com/@shivangdubey8" target="_blank" rel="noopener">📝 Medium</a>
-          <a href="https://www.linkedin.com/in/shivangdubey8/" target="_blank" rel="noopener">💼 LinkedIn</a>
-          <a href="https://x.com/subtleshivang" target="_blank" rel="noopener">🐦 Twitter</a>
-          <a href="https://github.com/shivangdubey" target="_blank" rel="noopener">💻 GitHub</a>
+    <header>
+      <nav>
+        <ul>
+          <li><a href="#home" class="active">Home</a></li>
+          <li><a href="#projects">Work</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#skills">Skills</a></li>
+        </ul>
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+          🌙
+        </button>
+      </nav>
+    </header>
+
+    <section id="home" class="intro">
+      <div class="intro-content">
+        <div class="intro-text">
+          <h1>Shivang Dubey</h1>
+          <p class="tagline">Associate at ZS | AI Researcher & Developer</p>
+          <p>
+            I am an Associate at <a href="https://www.zs.com/" target="_blank">ZS</a>, passionate about leveraging AI for real-world applications.
+            My background is in Electronics and Communication Engineering, and I specialize in computer vision, medical imaging, and anomaly detection.
+          </p>
+          <p>
+            Previously, I've conducted research on traffic signal detection at IIIT Delhi and network intrusion detection at Polytechnique Montréal.
+          </p>
+          <div class="social-links">
+            <a href="mailto:shivangdubey2001@gmail.com">Email</a>
+            <a href="data/Resume_ShivangDubey.pdf" target="_blank">CV</a>
+            <a href="https://www.linkedin.com/in/shivangdubey8/" target="_blank">LinkedIn</a>
+            <a href="https://github.com/shivangdubey" target="_blank">GitHub</a>
+            <a href="https://x.com/subtleshivang" target="_blank">Twitter</a>
+            <a href="https://medium.com/@shivangdubey8" target="_blank">Medium</a>
+          </div>
         </div>
-      </div>
-      <div class="hero-image">
-        <img src="images/Shivang.jpg" alt="Portrait of Shivang Dubey" onerror="this.style.display='none'; this.parentElement.innerHTML='👨‍💻'" />
+        <img src="images/Shivang.jpg" alt="Shivang Dubey" class="profile-pic" onerror="this.style.display='none'">
       </div>
     </section>
 
-    <!-- Projects -->
-    <section id="projects" class="section" aria-label="Projects">
-      <div class="section-header">
-        <h2>Research &amp; Projects</h2>
-        <p>Exploring the intersection of AI and real-world applications</p>
-      </div>
-      <div class="projects-grid">
-        <div class="project-card">
-          <div class="project-image" aria-hidden="true">🚶‍♂️📏</div>
-          <div class="project-content">
-            <h3>Social Distancing Violation Detection</h3>
-            <p>Developed a computer vision model to detect humans and measure distance violations between centroids with real-time bounding box visualization.</p>
-            <div class="project-links">
-              <a href="https://github.com/shivangdubey/Social-Distancing-Violation-System" target="_blank" rel="noopener">→ View Project</a>
-              <a href="https://github.com/shivangdubey/Social-Distancing-Violation-System/blob/main/Minor_Thesis.pdf" target="_blank" rel="noopener">→ Thesis</a>
+    <section id="experience">
+      <h2>Experience</h2>
+      <div class="item-list">
+        
+        <div class="item">
+          <div class="item-date">Sep 2023 – Present</div>
+          <div class="item-content">
+            <span class="item-title"><strong>Associate</strong> at ZS Associates</span>
+            <div class="item-desc">
+              <ul>
+                <li>Played a key role in an Operations and Enhancement project for a global biomedical company, optimizing data systems and processes.</li>
+                <li>Designed and enhanced ETL pipelines, performed SQL-based data analysis using PostgreSQL, and managed data ingestion through Amazon S3.</li>
+                <li>Automated backups and workflows using Python, boto, and Apache Airflow, and developed VBA-driven Excel automation to streamline reporting and analysis.</li>
+                <li>Led backend development for a technology migration project using Python and Flask, integrating with an AngularJS frontend to deliver a scalable web portal.</li>
+              </ul>
             </div>
           </div>
         </div>
-        <div class="project-card">
-          <div class="project-image" aria-hidden="true">🫁🔬</div>
-          <div class="project-content">
-            <h3>COVID-19 Detector: X-Ray Classification</h3>
-            <p>Built a deep learning model using CNN and Gradient Descent optimization to classify chest X-rays for COVID-19 detection with high accuracy.</p>
-            <div class="project-links">
-              <a href="https://github.com/shivangdubey/COVID-19_detector" target="_blank" rel="noopener">→ View Project</a>
+
+        <div class="item">
+          <div class="item-date">Jul 2023 – Aug 2023</div>
+          <div class="item-content">
+            <span class="item-title"><strong>Research Assistant</strong> at IIIT Delhi</span>
+            <div class="item-desc">
+              <ul>
+                <li>Worked with Dr. Saket Anand on vision-based perception for autonomous driving and road safety, focusing on traffic signal and road pattern detection using computer vision.</li>
+                <li>Assisted in experimenting with and evaluating models using YOLOv5, PyTorch, and TensorFlow.</li>
+                <li>Supported data preparation, analysis, and performance assessment to study model behavior across different traffic and environmental conditions.</li>
+              </ul>
             </div>
           </div>
         </div>
-        <div class="project-card">
-          <div class="project-image" aria-hidden="true">🛒📊</div>
-          <div class="project-content">
-            <h3>Online Grocery Store Scraper</h3>
-            <p>Created a web scraping tool to extract product data including prices, descriptions, quantities, and brands for comprehensive data analysis.</p>
-            <div class="project-links">
-              <a href="https://github.com/shivangdubey/Grocery_Store_Scraper" target="_blank" rel="noopener">→ View Project</a>
+
+        <div class="item">
+          <div class="item-date">May 2022 – Jul 2022</div>
+          <div class="item-content">
+            <span class="item-title"><strong>Summer Research Intern</strong> at Polytechnique Montréal</span>
+            <div class="item-desc">
+              <ul>
+                <li>Collaborated with a PhD student on a network intrusion detection system using deep reinforcement learning.</li>
+                <li>Worked on a Deep Q-Learning approach and compared its performance with traditional and deep learning models, including Support Vector Machines, Random Forests, and CNNs using TensorFlow.</li>
+                <li>Conducted comparative analysis to evaluate model effectiveness and summarize key insights.</li>
+              </ul>
             </div>
           </div>
         </div>
+
+        <div class="item">
+          <div class="item-date">Jun 2021 – Aug 2021</div>
+          <div class="item-content">
+            <span class="item-title"><strong>Research Intern</strong> at IIT Delhi</span>
+            <div class="item-desc">
+              <ul>
+                <li>Conducted market research to analyze factors driving product success and failure.</li>
+                <li>Developed a product case study using qualitative and quantitative analysis.</li>
+                <li>Applied Segmentation, Targeting, and Positioning (STP) along with the marketing mix framework to inform sales growth and strategic decisions.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="item">
+          <div class="item-date">2021 – 2023</div>
+          <div class="item-content">
+            <span class="item-title"><strong>Content Strategist</strong> at Coding Ninjas</span>
+            <div class="item-desc">
+              <ul>
+                <li>Led content strategy for the AI domain, overseeing a large portfolio of articles across ML, NLP, and Computer Vision.</li>
+                <li>Coordinated with writers and technical reviewers to ensure accuracy, relevance, and consistency with industry standards.</li>
+                <li>Defined content roadmaps, refined technical narratives for diverse audiences, and maintained high editorial quality while aligning publications with emerging trends.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
       </div>
     </section>
 
-    <!-- Experience -->
-    <section id="experience" class="section" aria-label="Experience">
-      <div class="section-header">
-        <h2>Professional Experience</h2>
-        <p>Building expertise through diverse roles and responsibilities</p>
-      </div>
-      <div class="timeline">
-        <!-- NEW: Most recent first -->
-        <div class="timeline-item">
-          <div class="timeline-content">
-            <h3>ZS Associates</h3>
-            <div class="timeline-date">September 2023 - Present</div>
-            <p><strong>Associate</strong></p>
-            <p>Worked on data analysis, backend development, operations pipeline, and ETL to streamline workflows and enable efficient, data-driven business solutions.</p>
+    <section id="projects">
+      <h2>Selected Projects</h2>
+      <div class="item-list">
+
+        <div class="item">
+          <div class="item-date">CV / Thesis</div>
+          <div class="item-content">
+            <span class="item-title"><strong>Social Distancing Violation Detection</strong></span>
+            <div class="item-desc">
+              <ul>
+                <li>The project uses YOLO and OpenCV to detect social distancing violations in CCTV footage by identifying people and measuring distances between them in real time.</li>
+                <li>By applying computer vision–based object detection, the system supports monitoring and enforcement of social distancing protocols in public spaces, particularly during the COVID-19 pandemic.</li>
+              </ul>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/shivangdubey/Social-Distancing-Violation-System" target="_blank">Code</a>
+              <a href="https://github.com/shivangdubey/Social-Distancing-Violation-System/blob/main/Minor_Thesis.pdf" target="_blank">Thesis</a>
+            </div>
           </div>
         </div>
 
-        <!-- NEW: Research Assistant (Jul–Aug 2023) -->
-        <div class="timeline-item">
-          <div class="timeline-content">
-            <h3>Indraprastha Institute of Information Technology Delhi</h3>
-            <div class="timeline-date">July 2023 - August 2023</div>
-            <p><strong>Research Assistant</strong> (Dr. Saket Anand)</p>
-            <p>Worked on traffic signal and road pattern detection models using Computer Vision and Machine Learning.</p>
+        <div class="item">
+          <div class="item-date">Deep Learning</div>
+          <div class="item-content">
+            <span class="item-title"><strong>COVID-19 Detector</strong></span>
+            <div class="item-desc">
+              <ul>
+                <li>The project applies a Convolutional Neural Network to classify COVID-19 cases from lung X-ray images and improves performance through gradient descent optimization.</li>
+                <li>By training on labeled X-ray data, the model enables accurate and rapid diagnosis, offering potential support for early detection and healthcare decision-making, particularly where traditional testing resources are limited.</li>
+              </ul>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/shivangdubey/COVID-19_detector" target="_blank">Code</a>
+            </div>
           </div>
         </div>
 
-        <div class="timeline-item">
-          <div class="timeline-content">
-            <h3>Polytechnique Montréal, Canada</h3>
-            <div class="timeline-date">May 2022 - July 2022</div>
-            <p><strong>Summer Research Intern</strong> (Prof. Soumaya Cherkaoui)</p>
-            <p>Developed Deep Q Learning model for network intrusion detection (79%+ accuracy). Implemented and compared SVM, Random Forest, and CNN models.</p>
+        <div class="item">
+          <div class="item-date">Web Scraping</div>
+          <div class="item-content">
+            <span class="item-title"><strong>Online Grocery Store Scraper</strong></span>
+            <div class="item-desc">
+              <ul>
+                <li>The project involves web scraping product data from Bigbasket.com, including categories, descriptions, quantities, brands, prices, and images, and storing it in a reusable structured format.</li>
+                <li>The extracted data can be used for product analysis, price comparison, competitor tracking, and other business or research applications.</li>
+              </ul>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/shivangdubey/Grocery_Store_Scraper" target="_blank">Code</a>
+            </div>
           </div>
         </div>
-        <div class="timeline-item">
-          <div class="timeline-content">
-            <h3>Indian Institute of Technology, Delhi</h3>
-            <div class="timeline-date">June 2021 - August 2021</div>
-            <p><strong>Research Intern</strong> (Prof. Biswajita Parida)</p>
-            <p>Analyzed 150+ companies/startups, developed case studies using STP model and 4Ps framework to forecast sales improvements.</p>
-          </div>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-content">
-            <h3>Coding Ninjas</h3>
-            <div class="timeline-date">Dec 2021 - Feb 2022 / Nov 2022 - Apr 2023</div>
-            <p><strong>Content Strategist &amp; Reviewer</strong> (CodeStudio)</p>
-            <p>Led content strategy for AI domain, supervised 450+ articles across ML, NLP, Computer Vision, and Python. Managed team of 4 technical writers.</p>
-          </div>
-        </div>
+
       </div>
     </section>
 
-    <!-- Skills -->
-    <section id="skills" class="section" aria-label="Skills">
-      <div class="section-header">
-        <h2>Technical Skills</h2>
-        <p>Technologies and tools I work with</p>
-      </div>
-      <div class="skills-container">
-        <div class="skill-item" aria-label="Machine Learning"><div class="skill-icon">🤖</div><div>Machine Learning</div></div>
-        <div class="skill-item" aria-label="Computer Vision"><div class="skill-icon">👁️</div><div>Computer Vision</div></div>
-        <div class="skill-item" aria-label="Deep Learning"><div class="skill-icon">🧠</div><div>Deep Learning</div></div>
-        <div class="skill-item" aria-label="Python"><div class="skill-icon">🐍</div><div>Python</div></div>
-        <div class="skill-item" aria-label="Data Analysis"><div class="skill-icon">📊</div><div>Data Analysis</div></div>
-        <div class="skill-item" aria-label="Web Scraping"><div class="skill-icon">🔍</div><div>Web Scraping</div></div>
-        <div class="skill-item" aria-label="NLP"><div class="skill-icon">📝</div><div>NLP</div></div>
-        <div class="skill-item" aria-label="Medical Imaging"><div class="skill-icon">🏥</div><div>Medical Imaging</div></div>
+    <section id="skills">
+      <h2>Skills</h2>
+      <div class="skills-list">
+        <span class="skill-tag">Machine Learning</span>
+        <span class="skill-tag">Computer Vision</span>
+        <span class="skill-tag">Deep Learning</span>
+        <span class="skill-tag">Python</span>
+        <span class="skill-tag">Data Analysis</span>
+        <span class="skill-tag">NLP</span>
+        <span class="skill-tag">Medical Imaging</span>
+        <span class="skill-tag">Web Scraping</span>
       </div>
     </section>
 
-    <!-- Achievements -->
-    <section class="section" aria-label="Achievements">
-      <div class="section-header">
-        <h2>Achievements &amp; Highlights</h2>
-      </div>
-      <div class="timeline">
-        <!-- NEW: ZS Impact Award -->
-        <div class="timeline-item">
-          <div class="timeline-content">
-            <h3>🏅 ZS Impact Award</h3>
-            <div class="timeline-date">December 2023</div>
-          </div>
-        </div>
 
-        <div class="timeline-item">
-          <div class="timeline-content">
-            <h3>🏆 Top 10 - Smart India Hackathon 2022</h3>
-            <div class="timeline-date">February 2022</div>
-          </div>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-content">
-            <h3>🌍 MITACS Globalink Research Scholar</h3>
-            <div class="timeline-date">December 2021</div>
-            <p>Selected for prestigious international research program</p>
-          </div>
-        </div>
-      </div>
-    </section>
+
+    <footer>
+      <p>&copy; <span id="year">2024</span> Shivang Dubey</p>
+    </footer>
+
   </div>
 
-  <!-- Footer -->
-  <footer class="footer" role="contentinfo">
-    <p>© <span id="year">2024</span> Shivang Dubey. Built with passion and code.</p>
-  </footer>
-
-  <!-- Scroll to Top Button -->
-  <button class="scroll-top" id="scrollTop" aria-label="Scroll to top" title="Back to top">↑</button>
-
   <script>
-    // ===== Theme Toggle =====
-    const themeToggle = document.getElementById('themeToggle');
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Theme Toggle Logic
+    const toggleBtn = document.getElementById('themeToggle');
     const body = document.body;
-    const themeIcon = themeToggle.querySelector('.theme-icon');
-    const themeText = themeToggle.querySelector('span:last-child');
     const savedTheme = localStorage.getItem('theme') || 'light';
+    
+    // Apply saved theme
     body.setAttribute('data-theme', savedTheme);
-    updateThemeToggle(savedTheme);
-    themeToggle.addEventListener('click', () => {
-      const theme = body.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-      body.setAttribute('data-theme', theme);
-      localStorage.setItem('theme', theme);
-      updateThemeToggle(theme);
+    updateIcon(savedTheme);
+
+    toggleBtn.addEventListener('click', () => {
+      const currentTheme = body.getAttribute('data-theme');
+      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      
+      body.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
+      updateIcon(newTheme);
     });
-    function updateThemeToggle(theme){
-      if(theme === 'dark'){ themeIcon.textContent='☀️'; themeText.textContent='Light'; }
-      else { themeIcon.textContent='🌙'; themeText.textContent='Dark'; }
+
+    function updateIcon(theme) {
+      toggleBtn.textContent = theme === 'dark' ? '☀️' : '🌙';
     }
-
-    // ===== Loader =====
-    const loader = document.getElementById('loader');
-    window.addEventListener('load', () => {
-      setTimeout(() => loader.classList.add('hidden'), 300);
-      document.getElementById('year').textContent = new Date().getFullYear();
-    });
-
-    // ===== Smooth Scrolling with fixed navbar offset =====
-    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const navbar = document.querySelector('.navbar');
-    function scrollToTarget(target){
-      const rect = target.getBoundingClientRect();
-      const offset = (window.pageYOffset || document.documentElement.scrollTop) + rect.top - (navbar?.offsetHeight || 0) - 10;
-      window.scrollTo({ top: Math.max(offset, 0), behavior: prefersReduced ? 'auto' : 'smooth' });
-      target.setAttribute('tabindex','-1');
-      target.focus({ preventScroll: true });
-    }
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', e => {
-        const hash = anchor.getAttribute('href');
-        if(!hash || hash === '#') return;
-        const target = document.querySelector(hash);
-        if(target){
-          e.preventDefault();
-          scrollToTarget(target);
-          history.pushState(null, '', hash);
-        }
-      });
-    });
-
-    // ===== Scroll-to-top button =====
-    const scrollBtn = document.getElementById('scrollTop');
-    function toggleScrollBtn(){
-      if(window.scrollY > 400) scrollBtn.classList.add('visible');
-      else scrollBtn.classList.remove('visible');
-    }
-    toggleScrollBtn();
-    window.addEventListener('scroll', toggleScrollBtn, { passive: true });
-    scrollBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: prefersReduced ? 'auto' : 'smooth' }));
-
-    // ===== Active nav link on scroll =====
-    const sections = document.querySelectorAll('section[id]');
-    const navLinks = document.querySelectorAll('.nav-links a');
-    const linkMap = new Map([...navLinks].map(a => [a.getAttribute('href').replace('#',''), a]));
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if(entry.isIntersecting){
-          const id = entry.target.id;
-          navLinks.forEach(a => a.classList.remove('active'));
-          const link = linkMap.get(id);
-          if(link) link.classList.add('active');
-        }
-      });
-    }, { rootMargin: `-${(navbar?.offsetHeight || 0) + 40}px 0px -70% 0px`, threshold: 0.1 });
-    sections.forEach(sec => observer.observe(sec));
-
-    // ===== Keyboard accessibility for Skip-like behavior via brand click =====
-    document.querySelector('.nav-brand')?.addEventListener('click', () => {
-      const top = document.getElementById('home');
-      if(top) scrollToTarget(top);
-    });
   </script>
 </body>
 </html>
