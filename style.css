@@ -324,5 +324,7 @@ footer {
   .item-date {
     margin-bottom: 0.25rem;
     font-size: 0.85rem;
+    flex: auto;
+    /* Reset fixed 140px basis which causes gap in column mode */
   }
 }
