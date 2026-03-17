@@ -1,194 +1,263 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8">
   <title>Shivang Dubey</title>
   <meta name="author" content="Shivang Dubey">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Shivang Dubey - AI enthusiast, researcher, and developer.">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🚀</text></svg>">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="description" content="Shivang Dubey — AI Researcher & Developer at ZS Associates.">
+  <meta name="theme-color" content="#111111" id="metaThemeColor">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⬡</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;700;800;900&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <div class="container">
-    <header>
-      <nav>
-        <ul>
-          <li><a href="#home" class="active">Home</a></li>
-          <li><a href="#projects">Work</a></li>
-          <li><a href="#experience">Experience</a></li>
-          <li><a href="#skills">Skills</a></li>
-          <li><a href="#interests">Interests</a></li>
-        </ul>
-        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
-          🌙
-        </button>
-      </nav>
-    </header>
+  <!-- Custom Cursor -->
+  <div class="cursor" id="cursor"></div>
 
-    <section id="home" class="intro">
-      <div class="intro-content">
-        <div class="intro-text">
-          <h1>Shivang Dubey</h1>
-          <p class="tagline">Associate at ZS | AI Researcher & Developer</p>
-          <p>
-            I am an Associate at <a href="https://www.zs.com/" target="_blank">ZS</a>, passionate about leveraging AI for real-world applications.
-            My background is in Electronics and Communication Engineering, and I specialize in computer vision, medical imaging, and anomaly detection.
+  <!-- Navigation -->
+  <nav class="nav" id="nav">
+    <a href="#hero" class="nav-logo">SD</a>
+    <div class="nav-right">
+      <button class="theme-btn" id="themeBtn" aria-label="Switch to light mode">
+        <span class="theme-btn-icon">☀</span>
+      </button>
+      <button class="nav-menu-btn" id="menuBtn" aria-label="Open menu">MENU</button>
+    </div>
+  </nav>
+
+  <!-- Menu Overlay -->
+  <div class="menu-overlay" id="menuOverlay" aria-hidden="true">
+    <div class="menu-top">
+      <span class="nav-logo">SD</span>
+      <button class="menu-close-btn" id="menuClose" aria-label="Close menu">CLOSE</button>
+    </div>
+    <nav class="menu-nav">
+      <ul>
+        <li><a href="#about" class="menu-link" data-num="01">About</a></li>
+        <li><a href="#experience" class="menu-link" data-num="02">Experience</a></li>
+        <li><a href="#work" class="menu-link" data-num="03">Work</a></li>
+        <li><a href="#skills" class="menu-link" data-num="04">Skills</a></li>
+      </ul>
+    </nav>
+    <div class="menu-footer">
+      <a href="mailto:shivangdubey2001@gmail.com">Email</a>
+      <a href="https://www.linkedin.com/in/shivangdubey8/" target="_blank">LinkedIn</a>
+      <a href="https://github.com/shivangdubey" target="_blank">GitHub</a>
+      <a href="https://x.com/subtleshivang" target="_blank">Twitter</a>
+    </div>
+  </div>
+
+  <!-- ─── HERO ─── -->
+  <section class="hero" id="hero">
+    <div class="hero-photo-wrap">
+      <img src="images/Shivang.jpg" alt="Shivang Dubey" class="hero-photo" onerror="this.parentElement.style.opacity='0'">
+      <div class="hero-photo-overlay"></div>
+    </div>
+
+    <div class="hero-body">
+      <div class="hero-kicker">
+        <span>AI RESEARCHER</span>
+        <span>DEVELOPER</span>
+      </div>
+
+      <h1 class="hero-name">
+        <span class="name-line">SHIVANG</span>
+        <span class="name-line">DUBEY</span>
+      </h1>
+
+      <div class="hero-meta">
+        <span>ZS ASSOCIATES</span>
+        <span class="dot">·</span>
+        <span>GURUGRAM, INDIA</span>
+      </div>
+    </div>
+
+    <div class="hero-scroll">
+      <div class="scroll-line"></div>
+      <span>SCROLL</span>
+    </div>
+  </section>
+
+  <!-- ─── ABOUT ─── -->
+  <section class="section" id="about">
+    <div class="section-aside">
+      <span class="section-num">01</span>
+      <span class="section-tag">ABOUT</span>
+    </div>
+    <div class="section-body">
+      <p class="about-lead fade-up">
+        Associate at <a href="https://www.zs.com/" target="_blank">ZS</a>, passionate about leveraging AI for real-world applications.
+      </p>
+      <p class="about-body fade-up">
+        Background in Electronics and Communication Engineering, specializing in computer vision, medical imaging, and anomaly detection. Previously conducted research on traffic signal detection at IIIT Delhi and network intrusion detection at Polytechnique Montréal.
+      </p>
+      <div class="social-row fade-up">
+        <a href="mailto:shivangdubey2001@gmail.com" class="social-link">Email</a>
+        <a href="data/Resume_ShivangDubey.pdf" target="_blank" class="social-link">CV</a>
+        <a href="https://www.linkedin.com/in/shivangdubey8/" target="_blank" class="social-link">LinkedIn</a>
+        <a href="https://github.com/shivangdubey" target="_blank" class="social-link">GitHub</a>
+        <a href="https://x.com/subtleshivang" target="_blank" class="social-link">Twitter</a>
+        <a href="https://medium.com/@shivangdubey8" target="_blank" class="social-link">Medium</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── EXPERIENCE ─── -->
+  <section class="section" id="experience">
+    <div class="section-aside">
+      <span class="section-num">02</span>
+      <span class="section-tag">EXPERIENCE</span>
+    </div>
+    <div class="section-body">
+
+      <div class="exp-item fade-up">
+        <div class="exp-meta">
+          <span class="exp-date">Sep 2023 – Present</span>
+        </div>
+        <div class="exp-content">
+          <div class="exp-header">
+            <span class="exp-role">Associate</span>
+            <span class="exp-company">ZS Associates</span>
+          </div>
+          <ul class="exp-desc">
+            <li>Played a key role in an Operations and Enhancement project for a global biomedical company, optimizing data systems and processes.</li>
+            <li>Designed and enhanced ETL pipelines, performed SQL-based data analysis using PostgreSQL, and managed data ingestion through Amazon S3.</li>
+            <li>Automated backups and workflows using Python, boto, and Apache Airflow; developed VBA-driven Excel automation to streamline reporting.</li>
+            <li>Led backend development for a technology migration project using Python and Flask, integrating with an AngularJS frontend.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="exp-item fade-up">
+        <div class="exp-meta">
+          <span class="exp-date">Jul 2023 – Aug 2023</span>
+        </div>
+        <div class="exp-content">
+          <div class="exp-header">
+            <span class="exp-role">Research Assistant</span>
+            <span class="exp-company">IIIT Delhi</span>
+          </div>
+          <ul class="exp-desc">
+            <li>Worked with Dr. Saket Anand on vision-based perception for autonomous driving, focusing on traffic signal and road pattern detection.</li>
+            <li>Experimented with and evaluated models using YOLOv5, PyTorch, and TensorFlow.</li>
+            <li>Supported data preparation, analysis, and performance assessment across different traffic and environmental conditions.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="exp-item fade-up">
+        <div class="exp-meta">
+          <span class="exp-date">May 2022 – Jul 2022</span>
+        </div>
+        <div class="exp-content">
+          <div class="exp-header">
+            <span class="exp-role">Summer Research Intern</span>
+            <span class="exp-company">Polytechnique Montréal</span>
+          </div>
+          <ul class="exp-desc">
+            <li>Collaborated on a network intrusion detection system using deep reinforcement learning.</li>
+            <li>Worked on a Deep Q-Learning approach and compared it with SVMs, Random Forests, and CNNs using TensorFlow.</li>
+            <li>Conducted comparative analysis to evaluate model effectiveness and summarize key insights.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="exp-item fade-up">
+        <div class="exp-meta">
+          <span class="exp-date">Jun 2021 – Aug 2021</span>
+        </div>
+        <div class="exp-content">
+          <div class="exp-header">
+            <span class="exp-role">Research Intern</span>
+            <span class="exp-company">IIT Delhi</span>
+          </div>
+          <ul class="exp-desc">
+            <li>Conducted market research to analyze factors driving product success and failure.</li>
+            <li>Developed a product case study applying STP framework and marketing mix to inform strategic decisions.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="exp-item fade-up">
+        <div class="exp-meta">
+          <span class="exp-date">2021 – 2023</span>
+        </div>
+        <div class="exp-content">
+          <div class="exp-header">
+            <span class="exp-role">Content Strategist</span>
+            <span class="exp-company">Coding Ninjas</span>
+          </div>
+          <ul class="exp-desc">
+            <li>Led content strategy for the AI domain, overseeing a large portfolio across ML, NLP, and Computer Vision.</li>
+            <li>Coordinated with writers and technical reviewers to ensure accuracy and consistency with industry standards.</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ─── WORK ─── -->
+  <section class="section" id="work">
+    <div class="section-aside">
+      <span class="section-num">03</span>
+      <span class="section-tag">WORK</span>
+    </div>
+    <div class="section-body">
+
+      <div class="project-grid">
+
+        <div class="project-card fade-up">
+          <span class="project-tag">CV / Thesis</span>
+          <h3 class="project-title">Social Distancing Violation Detection</h3>
+          <p class="project-desc">
+            Uses YOLO and OpenCV to detect social distancing violations in CCTV footage by identifying people and measuring distances in real time. Supports monitoring and enforcement in public spaces.
           </p>
-          <p>
-            Previously, I've conducted research on traffic signal detection at IIIT Delhi and network intrusion detection at Polytechnique Montréal.
+          <div class="project-links">
+            <a href="https://github.com/shivangdubey/Social-Distancing-Violation-System" target="_blank">Code ↗</a>
+            <a href="https://github.com/shivangdubey/Social-Distancing-Violation-System/blob/main/Minor_Thesis.pdf" target="_blank">Thesis ↗</a>
+          </div>
+        </div>
+
+        <div class="project-card fade-up">
+          <span class="project-tag">Deep Learning</span>
+          <h3 class="project-title">COVID-19 Detector</h3>
+          <p class="project-desc">
+            Applies a Convolutional Neural Network to classify COVID-19 cases from lung X-ray images, improving performance through gradient descent optimization. Enables accurate and rapid diagnosis.
           </p>
-          <div class="social-links">
-            <a href="mailto:shivangdubey2001@gmail.com">Email</a>
-            <a href="data/Resume_ShivangDubey.pdf" target="_blank">CV</a>
-            <a href="https://www.linkedin.com/in/shivangdubey8/" target="_blank">LinkedIn</a>
-            <a href="https://github.com/shivangdubey" target="_blank">GitHub</a>
-            <a href="https://x.com/subtleshivang" target="_blank">Twitter</a>
-            <a href="https://medium.com/@shivangdubey8" target="_blank">Medium</a>
-          </div>
-        </div>
-        <img src="images/Shivang.jpg" alt="Shivang Dubey" class="profile-pic" onerror="this.style.display='none'">
-      </div>
-    </section>
-
-    <section id="experience">
-      <h2>Experience</h2>
-      <div class="item-list">
-        
-        <div class="item">
-          <div class="item-date">Sep 2023 – Present</div>
-          <div class="item-content">
-            <span class="item-title"><strong>Associate</strong> at ZS Associates</span>
-            <div class="item-desc">
-              <ul>
-                <li>Played a key role in an Operations and Enhancement project for a global biomedical company, optimizing data systems and processes.</li>
-                <li>Designed and enhanced ETL pipelines, performed SQL-based data analysis using PostgreSQL, and managed data ingestion through Amazon S3.</li>
-                <li>Automated backups and workflows using Python, boto, and Apache Airflow, and developed VBA-driven Excel automation to streamline reporting and analysis.</li>
-                <li>Led backend development for a technology migration project using Python and Flask, integrating with an AngularJS frontend to deliver a scalable web portal.</li>
-              </ul>
-            </div>
+          <div class="project-links">
+            <a href="https://github.com/shivangdubey/COVID-19_detector" target="_blank">Code ↗</a>
           </div>
         </div>
 
-        <div class="item">
-          <div class="item-date">Jul 2023 – Aug 2023</div>
-          <div class="item-content">
-            <span class="item-title"><strong>Research Assistant</strong> at IIIT Delhi</span>
-            <div class="item-desc">
-              <ul>
-                <li>Worked with Dr. Saket Anand on vision-based perception for autonomous driving and road safety, focusing on traffic signal and road pattern detection using computer vision.</li>
-                <li>Assisted in experimenting with and evaluating models using YOLOv5, PyTorch, and TensorFlow.</li>
-                <li>Supported data preparation, analysis, and performance assessment to study model behavior across different traffic and environmental conditions.</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="item-date">May 2022 – Jul 2022</div>
-          <div class="item-content">
-            <span class="item-title"><strong>Summer Research Intern</strong> at Polytechnique Montréal</span>
-            <div class="item-desc">
-              <ul>
-                <li>Collaborated with a PhD student on a network intrusion detection system using deep reinforcement learning.</li>
-                <li>Worked on a Deep Q-Learning approach and compared its performance with traditional and deep learning models, including Support Vector Machines, Random Forests, and CNNs using TensorFlow.</li>
-                <li>Conducted comparative analysis to evaluate model effectiveness and summarize key insights.</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="item-date">Jun 2021 – Aug 2021</div>
-          <div class="item-content">
-            <span class="item-title"><strong>Research Intern</strong> at IIT Delhi</span>
-            <div class="item-desc">
-              <ul>
-                <li>Conducted market research to analyze factors driving product success and failure.</li>
-                <li>Developed a product case study using qualitative and quantitative analysis.</li>
-                <li>Applied Segmentation, Targeting, and Positioning (STP) along with the marketing mix framework to inform sales growth and strategic decisions.</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="item-date">2021 – 2023</div>
-          <div class="item-content">
-            <span class="item-title"><strong>Content Strategist</strong> at Coding Ninjas</span>
-            <div class="item-desc">
-              <ul>
-                <li>Led content strategy for the AI domain, overseeing a large portfolio of articles across ML, NLP, and Computer Vision.</li>
-                <li>Coordinated with writers and technical reviewers to ensure accuracy, relevance, and consistency with industry standards.</li>
-                <li>Defined content roadmaps, refined technical narratives for diverse audiences, and maintained high editorial quality while aligning publications with emerging trends.</li>
-              </ul>
-            </div>
+        <div class="project-card fade-up">
+          <span class="project-tag">Web Scraping</span>
+          <h3 class="project-title">Online Grocery Store Scraper</h3>
+          <p class="project-desc">
+            Scrapes product data from Bigbasket.com — categories, descriptions, quantities, brands, prices, and images — storing it in a reusable structured format for analysis and research.
+          </p>
+          <div class="project-links">
+            <a href="https://github.com/shivangdubey/Grocery_Store_Scraper" target="_blank">Code ↗</a>
           </div>
         </div>
 
       </div>
-    </section>
 
-    <section id="projects">
-      <h2>Selected Projects</h2>
-      <div class="item-list">
+    </div>
+  </section>
 
-        <div class="item">
-          <div class="item-date">CV / Thesis</div>
-          <div class="item-content">
-            <span class="item-title"><strong>Social Distancing Violation Detection</strong></span>
-            <div class="item-desc">
-              <ul>
-                <li>The project uses YOLO and OpenCV to detect social distancing violations in CCTV footage by identifying people and measuring distances between them in real time.</li>
-                <li>By applying computer vision–based object detection, the system supports monitoring and enforcement of social distancing protocols in public spaces, particularly during the COVID-19 pandemic.</li>
-              </ul>
-            </div>
-            <div class="project-links">
-              <a href="https://github.com/shivangdubey/Social-Distancing-Violation-System" target="_blank">Code</a>
-              <a href="https://github.com/shivangdubey/Social-Distancing-Violation-System/blob/main/Minor_Thesis.pdf" target="_blank">Thesis</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="item-date">Deep Learning</div>
-          <div class="item-content">
-            <span class="item-title"><strong>COVID-19 Detector</strong></span>
-            <div class="item-desc">
-              <ul>
-                <li>The project applies a Convolutional Neural Network to classify COVID-19 cases from lung X-ray images and improves performance through gradient descent optimization.</li>
-                <li>By training on labeled X-ray data, the model enables accurate and rapid diagnosis, offering potential support for early detection and healthcare decision-making, particularly where traditional testing resources are limited.</li>
-              </ul>
-            </div>
-            <div class="project-links">
-              <a href="https://github.com/shivangdubey/COVID-19_detector" target="_blank">Code</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="item-date">Web Scraping</div>
-          <div class="item-content">
-            <span class="item-title"><strong>Online Grocery Store Scraper</strong></span>
-            <div class="item-desc">
-              <ul>
-                <li>The project involves web scraping product data from Bigbasket.com, including categories, descriptions, quantities, brands, prices, and images, and storing it in a reusable structured format.</li>
-                <li>The extracted data can be used for product analysis, price comparison, competitor tracking, and other business or research applications.</li>
-              </ul>
-            </div>
-            <div class="project-links">
-              <a href="https://github.com/shivangdubey/Grocery_Store_Scraper" target="_blank">Code</a>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <section id="skills">
-      <h2>Skills</h2>
-      <div class="skills-list">
+  <!-- ─── SKILLS ─── -->
+  <section class="section" id="skills">
+    <div class="section-aside">
+      <span class="section-num">04</span>
+      <span class="section-tag">SKILLS</span>
+    </div>
+    <div class="section-body">
+      <div class="skills-wrap fade-up">
         <span class="skill-tag">Machine Learning</span>
         <span class="skill-tag">Computer Vision</span>
         <span class="skill-tag">Deep Learning</span>
@@ -197,63 +266,239 @@
         <span class="skill-tag">NLP</span>
         <span class="skill-tag">Medical Imaging</span>
         <span class="skill-tag">Web Scraping</span>
+        <span class="skill-tag">PostgreSQL</span>
+        <span class="skill-tag">ETL Pipelines</span>
+        <span class="skill-tag">Apache Airflow</span>
+        <span class="skill-tag">PyTorch</span>
+        <span class="skill-tag">TensorFlow</span>
+        <span class="skill-tag">Flask</span>
+        <span class="skill-tag">Amazon S3</span>
       </div>
-    </section>
 
-    <section id="interests">
-      <h2>Personal Interests</h2>
-      <div class="interests-list">
-        <div class="interest-item">
-          <span class="interest-icon">🏋️</span>
-          <span class="interest-name">Weightlifting</span>
-        </div>
-        <div class="interest-item">
-          <span class="interest-icon">🎵</span>
-          <span class="interest-name">Music</span>
-        </div>
-        <div class="interest-item">
-          <span class="interest-icon">📱</span>
-          <span class="interest-name">Gadgets</span>
-        </div>
-        <div class="interest-item">
-          <span class="interest-icon">🧪</span>
-          <span class="interest-name">Perfumery</span>
+      <div class="interests-wrap fade-up">
+        <h3 class="interests-heading">BEYOND CODE</h3>
+        <div class="interests-row">
+          <span class="interest-item">🏋️ Weightlifting</span>
+          <span class="interest-item">🎵 Music</span>
+          <span class="interest-item">📱 Gadgets</span>
+          <span class="interest-item">🧪 Perfumery</span>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-
-
-    <footer>
-      <p>&copy; <span id="year">2024</span> Shivang Dubey</p>
-    </footer>
-
+  <!-- ─── AMBIENT AUDIO PLAYER ─── -->
+  <div class="audio-player" id="audioPlayer">
+    <button class="audio-btn" id="audioBtn" aria-label="Unmute ambient music">
+      <span class="audio-bars" aria-hidden="true">
+        <span></span><span></span><span></span><span></span>
+      </span>
+      <span class="audio-label" id="audioLabel">AMBIENT</span>
+    </button>
+    <!-- YT player: off-screen but real size so YouTube allows playback -->
+    <div id="ytPlayer" style="position:fixed;left:-9999px;top:-9999px;width:200px;height:113px;pointer-events:none;"></div>
   </div>
 
+  <!-- ─── FOOTER ─── -->
+  <footer class="footer">
+    <span class="footer-copy">© <span id="year"></span> Shivang Dubey</span>
+    <div class="footer-links">
+      <a href="mailto:shivangdubey2001@gmail.com">Email</a>
+      <a href="https://www.linkedin.com/in/shivangdubey8/" target="_blank">LinkedIn</a>
+      <a href="https://github.com/shivangdubey" target="_blank">GitHub</a>
+    </div>
+  </footer>
+
   <script>
+    // ── Year ──
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // Theme Toggle Logic
-    const toggleBtn = document.getElementById('themeToggle');
-    const body = document.body;
-    const savedTheme = localStorage.getItem('theme') || 'light';
-    
-    // Apply saved theme
-    body.setAttribute('data-theme', savedTheme);
-    updateIcon(savedTheme);
+    // ── Theme ──────────────────────────────────────────────
+    const root     = document.documentElement;
+    const themeBtn = document.getElementById('themeBtn');
+    const metaThemeColor = document.getElementById('metaThemeColor');
 
-    toggleBtn.addEventListener('click', () => {
-      const currentTheme = body.getAttribute('data-theme');
-      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-      
-      body.setAttribute('data-theme', newTheme);
-      localStorage.setItem('theme', newTheme);
-      updateIcon(newTheme);
+    // Boot: read saved preference (default dark)
+    (function () {
+      var t = localStorage.getItem('sd-theme') || 'dark';
+      root.setAttribute('data-theme', t);
+    })();
+
+    function getTheme()   { return root.getAttribute('data-theme'); }
+    function setTheme(t)  {
+      root.setAttribute('data-theme', t);
+      localStorage.setItem('sd-theme', t);
+      syncBtn(t);
+      metaThemeColor.content = t === 'dark' ? '#111111' : '#f4f3ef';
+    }
+
+    function syncBtn(t) {
+      var iconEl = themeBtn.querySelector('.theme-btn-icon');
+      if (!iconEl) return;
+      iconEl.textContent = t === 'dark' ? '☀' : '☾';
+      themeBtn.setAttribute('aria-label', t === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
+    }
+
+    // Init button state
+    syncBtn(getTheme());
+
+    themeBtn.addEventListener('click', function () {
+      var next = getTheme() === 'dark' ? 'light' : 'dark';
+
+      // Immersive ripple from button center
+      var rect   = themeBtn.getBoundingClientRect();
+      var cx     = rect.left + rect.width  / 2;
+      var cy     = rect.top  + rect.height / 2;
+      var ripple = document.createElement('div');
+      ripple.className = 'theme-ripple';
+      ripple.style.cssText =
+        'left:' + cx + 'px;top:' + cy + 'px;' +
+        'background:' + (next === 'light' ? '#f4f3ef' : '#111111') + ';';
+      document.body.appendChild(ripple);
+
+      // Trigger expand on next frame
+      requestAnimationFrame(function () {
+        ripple.classList.add('theme-ripple--go');
+      });
+
+      // Swap theme at ripple peak (280 ms in)
+      setTimeout(function () { setTheme(next); }, 280);
+
+      // Remove ripple after animation completes
+      setTimeout(function () {
+        if (ripple.parentNode) ripple.parentNode.removeChild(ripple);
+      }, 700);
     });
 
-    function updateIcon(theme) {
-      toggleBtn.textContent = theme === 'dark' ? '☀️' : '🌙';
+    // ── Custom Cursor (desktop only) ──────────────────────
+    var cursor = document.getElementById('cursor');
+    if (window.matchMedia('(hover: hover)').matches) {
+      document.addEventListener('mousemove', function (e) {
+        cursor.style.transform = 'translate(' + e.clientX + 'px,' + e.clientY + 'px)';
+      });
+      document.querySelectorAll('a, button').forEach(function (el) {
+        el.addEventListener('mouseenter', function () { cursor.classList.add('cursor-large'); });
+        el.addEventListener('mouseleave', function () { cursor.classList.remove('cursor-large'); });
+      });
     }
+
+    // ── Menu ─────────────────────────────────────────────
+    var menuBtn     = document.getElementById('menuBtn');
+    var menuClose   = document.getElementById('menuClose');
+    var menuOverlay = document.getElementById('menuOverlay');
+    var navEl       = document.getElementById('nav');
+
+    function openMenu() {
+      menuOverlay.classList.add('open');
+      menuOverlay.setAttribute('aria-hidden', 'false');
+      document.body.classList.add('menu-open');
+    }
+    function closeMenu() {
+      menuOverlay.classList.remove('open');
+      menuOverlay.setAttribute('aria-hidden', 'true');
+      document.body.classList.remove('menu-open');
+    }
+
+    menuBtn.addEventListener('click', openMenu);
+    menuClose.addEventListener('click', closeMenu);
+    document.querySelectorAll('.menu-link').forEach(function (link) {
+      link.addEventListener('click', closeMenu);
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') closeMenu();
+    });
+
+    // ── Scroll Fade-In ───────────────────────────────────
+    var fadeEls = document.querySelectorAll('.fade-up');
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.08 });
+    fadeEls.forEach(function (el) { io.observe(el); });
+
+    // ── Nav blur on scroll ───────────────────────────────
+    window.addEventListener('scroll', function () {
+      navEl.classList.toggle('nav-scrolled', window.scrollY > 60);
+    }, { passive: true });
+  </script>
+  <script>
+    // ── Ambient Audio ────────────────────────────────────────────
+    // Browsers block audio without user gesture. Strategy:
+    // • Pre-load YT API on page load (zero lag on first click)
+    // • Create player on first click → Chrome allows audio
+    // • Subsequent clicks toggle pause / play
+    var ytPlayer, ytApiReady = false, ytReady = false, playerCreated = false, isPlaying = false;
+    var audioBtn   = document.getElementById('audioBtn');
+    var audioLabel = document.getElementById('audioLabel');
+
+    // Pre-load API immediately so first click is instant
+    (function () {
+      var tag = document.createElement('script');
+      tag.src = 'https://www.youtube.com/iframe_api';
+      document.head.appendChild(tag);
+    })();
+
+    window.onYouTubeIframeAPIReady = function () {
+      ytApiReady = true;
+    };
+
+    function createPlayer() {
+      playerCreated = true;
+      audioLabel.textContent = 'LOADING…';
+      ytPlayer = new YT.Player('ytPlayer', {
+        height: '113',
+        width: '200',
+        videoId: 'qxewZJfY_FA',
+        playerVars: {
+          autoplay: 1,
+          loop: 1,
+          playlist: 'qxewZJfY_FA',
+          modestbranding: 1,
+          rel: 0,
+          iv_load_policy: 3,
+          controls: 0,
+          disablekb: 1,
+          fs: 0,
+        },
+        events: {
+          onReady: function (e) {
+            ytReady = true;
+            e.target.setVolume(65);
+            e.target.playVideo();
+          },
+          onStateChange: function (e) {
+            if (e.data === YT.PlayerState.PLAYING) {
+              isPlaying = true;
+              audioBtn.classList.add('playing');
+              audioLabel.textContent = 'PLAYING';
+            } else if (e.data === YT.PlayerState.PAUSED) {
+              isPlaying = false;
+              audioBtn.classList.remove('playing');
+              audioLabel.textContent = 'AMBIENT';
+            } else if (e.data === YT.PlayerState.ENDED) {
+              ytPlayer.playVideo(); // loop fallback
+            }
+          }
+        }
+      });
+    }
+
+    audioBtn.addEventListener('click', function () {
+      if (!ytApiReady) return;
+      if (!playerCreated) {
+        createPlayer();           // first click → create & play with sound
+      } else if (!ytReady) {
+        return;                   // still loading, wait
+      } else if (isPlaying) {
+        ytPlayer.pauseVideo();
+      } else {
+        ytPlayer.playVideo();
+      }
+    });
   </script>
 </body>
 </html>
