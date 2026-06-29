@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(cmd.exe /c \"start chrome file:///C:/Users/shiva/Desktop/shivangdubey.github.io/index.html\")",
+      "Bash(powershell.exe -Command \"Start-Process powershell -ArgumentList ''-NoProfile -Command cd \"\"C:\\\\Users\\\\shiva\\\\Desktop\\\\shivangdubey.github.io\"\"; $listener = [System.Net.HttpListener]::new\\(\\); $listener.Prefixes.Add\\(\"\"http://localhost:5500/\"\"\\); $listener.Start\\(\\); while\\($true\\) { $ctx = $listener.GetContext\\(\\); $req = $ctx.Request; $res = $ctx.Response; $path = \"\"C:\\\\Users\\\\shiva\\\\Desktop\\\\shivangdubey.github.io\"\" + $req.Url.LocalPath.Replace\\(\"\"/\"\", \"\"\\\\\"\"\\); if\\($path.EndsWith\\(\"\"\\\\\"\"\\)\\) { $path += \"\"index.html\"\" }; if\\(Test-Path $path\\) { $bytes = [IO.File]::ReadAllBytes\\($path\\); $res.OutputStream.Write\\($bytes, 0, $bytes.Length\\) }; $res.Close\\(\\) }'' -WindowStyle Hidden\")",
+      "Bash(gh run:*)"
+    ]
+  }
+}
