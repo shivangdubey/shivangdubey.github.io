@@ -309,11 +309,11 @@
 
   <!-- ─── AMBIENT AUDIO PLAYER ─── -->
   <div class="audio-player">
-    <button class="audio-btn" id="audioBtn" type="button" aria-label="Play ambient music">
+    <button class="audio-btn" id="audioBtn" type="button" aria-label="Press for Magic! Play ambient music">
       <span class="audio-bars" aria-hidden="true">
         <span></span><span></span><span></span><span></span>
       </span>
-      <span class="audio-label" id="audioLabel">ambient</span>
+      <span class="audio-label" id="audioLabel">Press for Magic!</span>
     </button>
     <!-- YT player: off-screen but real size so YouTube allows playback -->
     <div id="ytPlayer" style="position:fixed;left:-9999px;top:-9999px;width:200px;height:113px;pointer-events:none;">
@@ -420,12 +420,12 @@
               isPlaying = true;
               audioBtn.classList.add('playing');
               audioLabel.textContent = 'playing';
-              audioBtn.setAttribute('aria-label', 'Pause ambient music');
+              audioBtn.setAttribute('aria-label', 'Playing. Pause ambient music');
             } else if (e.data === YT.PlayerState.PAUSED) {
               isPlaying = false;
               audioBtn.classList.remove('playing');
-              audioLabel.textContent = 'ambient';
-              audioBtn.setAttribute('aria-label', 'Play ambient music');
+              audioLabel.textContent = 'Press for Magic!';
+              audioBtn.setAttribute('aria-label', 'Press for Magic! Play ambient music');
             } else if (e.data === YT.PlayerState.ENDED) {
               ytPlayer.playVideo(); // loop fallback
             }
