@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en">
 
 <head>
   <meta charset="UTF-8">
@@ -7,316 +7,313 @@
   <meta name="author" content="Shivang Dubey">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="description" content="Shivang Dubey — AI Researcher & Developer at ZS Associates.">
-  <meta name="theme-color" content="#111111" id="metaThemeColor">
+  <meta name="theme-color" content="#ffffff" id="metaThemeColor">
   <link rel="icon"
     href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⬡</text></svg>">
+
+  <!-- Boot the theme before first paint so there is no flash -->
+  <script>
+    (function () {
+      var saved = null;
+      try { saved = localStorage.getItem('sd-theme'); } catch (e) { }
+      var prefersDark = window.matchMedia &&
+        window.matchMedia('(prefers-color-scheme: dark)').matches;
+      var theme = saved || (prefersDark ? 'dark' : 'light');
+      document.documentElement.setAttribute('data-theme', theme);
+    })();
+  </script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;700;800;900&family=Inter:wght@300;400;500&display=swap"
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Ubuntu+Mono:wght@400;700&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-  <!-- Custom Cursor -->
-  <div class="cursor" id="cursor"></div>
+  <!-- ─── THEME TOGGLE ─── -->
+  <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch to dark mode">
+    <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+    </svg>
+    <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+      stroke-linejoin="round" aria-hidden="true">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </button>
 
-  <!-- Navigation -->
-  <nav class="nav" id="nav">
-    <a href="#hero" class="nav-logo">SD</a>
-    <div class="nav-right">
-      <button class="theme-btn" id="themeBtn" aria-label="Switch to light mode">
-        <span class="theme-btn-icon">☀</span>
-      </button>
-      <button class="nav-menu-btn" id="menuBtn" aria-label="Open menu">MENU</button>
-    </div>
-  </nav>
+  <!-- ─── ABOUT / INTRODUCTION ─── -->
+  <header class="about">
 
-  <!-- Menu Overlay -->
-  <div class="menu-overlay" id="menuOverlay" aria-hidden="true">
-    <div class="menu-top">
-      <span class="nav-logo">SD</span>
-      <button class="menu-close-btn" id="menuClose" aria-label="Close menu">CLOSE</button>
-    </div>
-    <nav class="menu-nav">
-      <ul>
-        <li><a href="#about" class="menu-link" data-num="01">About</a></li>
-        <li><a href="#experience" class="menu-link" data-num="02">Experience</a></li>
-        <li><a href="#work" class="menu-link" data-num="03">Work</a></li>
-        <li><a href="#skills" class="menu-link" data-num="04">Skills</a></li>
-      </ul>
-    </nav>
-    <div class="menu-footer">
-      <a href="mailto:shivangdubey2001@gmail.com">Email</a>
-      <a href="https://www.linkedin.com/in/shivangdubey8/" target="_blank">LinkedIn</a>
-      <a href="https://github.com/shivangdubey" target="_blank">GitHub</a>
-      <a href="https://x.com/subtleshivang" target="_blank">Twitter</a>
-    </div>
-  </div>
+    <img src="images/Shivang.jpg" alt="Shivang Dubey" id="profile_picture" class="rounded-circle"
+      onerror="this.style.display='none'">
 
-  <!-- ─── HERO ─── -->
-  <section class="hero" id="hero">
-    <div class="hero-photo-wrap">
-      <img src="images/Shivang.jpg" alt="Shivang Dubey" class="hero-photo"
-        onerror="this.parentElement.style.opacity='0'">
-      <div class="hero-photo-overlay"></div>
-    </div>
+    <h1 id="full_name" class="main_color">Shivang Dubey</h1>
 
-    <div class="hero-body">
-      <div class="hero-kicker">
-        <span>AI RESEARCHER</span>
-        <span>DEVELOPER</span>
+    <div class="affiliations">
+      <div class="affiliation">
+        <span class="title main_color">Associate Consultant,</span>
+        <span class="name text-muted">ZS Associates</span>
       </div>
-
-      <h1 class="hero-name">
-        <span class="name-line">SHIVANG</span>
-        <span class="name-line">DUBEY</span>
-      </h1>
-
-      <div class="hero-meta">
-        <span>ZS ASSOCIATES</span>
-        <span class="dot">·</span>
-        <span>GURUGRAM, INDIA</span>
+      <div id="email" class="text-muted">shivangdubey2001@gmail.com</div>
+      <div class="affiliation">
+        <span class="title main_color">AI Researcher &amp; Developer,</span>
+        <span class="name text-muted">Gurugram, India</span>
       </div>
     </div>
 
-    <div class="hero-scroll">
-      <div class="scroll-line"></div>
-      <span>SCROLL</span>
+    <div class="socials">
+      <a href="mailto:shivangdubey2001@gmail.com" aria-label="Email" title="Email">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+          stroke-linejoin="round" aria-hidden="true">
+          <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+          <polyline points="22,6 12,13 2,6"></polyline>
+        </svg>
+      </a>
+      <a href="https://github.com/shivangdubey" target="_blank" rel="me noopener" aria-label="GitHub" title="GitHub">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+          stroke-linejoin="round" aria-hidden="true">
+          <path
+            d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+          </path>
+        </svg>
+      </a>
+      <a href="https://www.linkedin.com/in/shivangdubey8/" target="_blank" rel="me noopener" aria-label="LinkedIn"
+        title="LinkedIn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+          stroke-linejoin="round" aria-hidden="true">
+          <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+          <rect x="2" y="9" width="4" height="12"></rect>
+          <circle cx="4" cy="4" r="2"></circle>
+        </svg>
+      </a>
+      <a href="https://x.com/subtleshivang" target="_blank" rel="me noopener" aria-label="Twitter" title="Twitter">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+          stroke-linejoin="round" aria-hidden="true">
+          <path
+            d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z">
+          </path>
+        </svg>
+      </a>
+      <a href="https://medium.com/@shivangdubey8" target="_blank" rel="me noopener" aria-label="Medium" title="Medium">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+          stroke-linejoin="round" aria-hidden="true">
+          <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+          <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+        </svg>
+      </a>
+      <a href="data/Resume_ShivangDubey.pdf" target="_blank" rel="noopener" class="social-cv" aria-label="CV"
+        title="CV">cv</a>
     </div>
-  </section>
 
-  <!-- ─── ABOUT ─── -->
-  <section class="section" id="about">
-    <div class="section-aside">
-      <span class="section-num">01</span>
-      <span class="section-tag">ABOUT</span>
-    </div>
-    <div class="section-body">
-      <p class="about-lead fade-up">
-        Associate Consultant at <a href="https://www.zs.com/" target="_blank">ZS</a>, passionate about leveraging AI for
-        real-world applications.
+    <div class="introduction text-justify">
+      <p>
+        Associate Consultant at <a href="https://www.zs.com/" target="_blank" rel="noopener">ZS</a>, passionate about
+        leveraging AI for real-world applications.
       </p>
-      <p class="about-body fade-up">
+      <p>
         Background in Electronics and Communication Engineering, specializing in computer vision, medical imaging, and
         anomaly detection. Previously conducted research on traffic signal detection at IIIT Delhi and network intrusion
         detection at Polytechnique Montréal.
       </p>
-      <div class="social-row fade-up">
-        <a href="mailto:shivangdubey2001@gmail.com" class="social-link">Email</a>
-        <a href="data/Resume_ShivangDubey.pdf" target="_blank" class="social-link">CV</a>
-        <a href="https://www.linkedin.com/in/shivangdubey8/" target="_blank" class="social-link">LinkedIn</a>
-        <a href="https://github.com/shivangdubey" target="_blank" class="social-link">GitHub</a>
-        <a href="https://x.com/subtleshivang" target="_blank" class="social-link">Twitter</a>
-        <a href="https://medium.com/@shivangdubey8" target="_blank" class="social-link">Medium</a>
-      </div>
     </div>
-  </section>
+
+  </header>
+
+  <!-- ─── INTERESTS / BEYOND CODE ─── -->
+  <div class="two-col">
+    <div class="interests">
+      <h4 class="main_color">Interests</h4>
+      <ul>
+        <li>Computer Vision</li>
+        <li>Medical Imaging</li>
+        <li>Anomaly Detection</li>
+        <li>Applied AI for Real-World Systems</li>
+      </ul>
+    </div>
+    <div class="beyond">
+      <h4 class="main_color">Beyond Code</h4>
+      <ul>
+        <li>Weightlifting</li>
+        <li>Music</li>
+        <li>Gadgets</li>
+        <li>Perfumery</li>
+      </ul>
+    </div>
+  </div>
 
   <!-- ─── EXPERIENCE ─── -->
-  <section class="section" id="experience">
-    <div class="section-aside">
-      <span class="section-num">02</span>
-      <span class="section-tag">EXPERIENCE</span>
+  <section class="experience">
+    <h3 class="section-title main_color">Experience</h3>
+    <h6 class="section-subtitle text-muted">industry consulting and academic research</h6>
+
+    <div class="course">
+      <div class="institution_dates">
+        <div class="institution">ZS Associates</div>
+        <div class="dates main_color">Sep 2023 - Present</div>
+      </div>
+      <div class="degree_major text-muted">Associate Consultant</div>
+      <ul class="other_info text-muted">
+        <li>Played a key role in an Operations and Enhancement project for a global biomedical company, optimizing
+          data systems and processes.</li>
+        <li>Designed and enhanced ETL pipelines, performed SQL-based data analysis using PostgreSQL, and managed
+          data ingestion through Amazon S3.</li>
+        <li>Automated backups and workflows using Python, boto, and Apache Airflow; developed VBA-driven Excel
+          automation to streamline reporting.</li>
+        <li>Led backend development for a technology migration project using Python and Flask, integrating with an
+          AngularJS frontend.</li>
+      </ul>
     </div>
-    <div class="section-body">
 
-      <div class="exp-item fade-up">
-        <div class="exp-meta">
-          <span class="exp-date">Sep 2023 – Present</span>
-        </div>
-        <div class="exp-content">
-          <div class="exp-header">
-            <span class="exp-role">Associate Consultant</span>
-            <span class="exp-company">ZS Associates</span>
-          </div>
-          <ul class="exp-desc">
-            <li>Played a key role in an Operations and Enhancement project for a global biomedical company, optimizing
-              data systems and processes.</li>
-            <li>Designed and enhanced ETL pipelines, performed SQL-based data analysis using PostgreSQL, and managed
-              data ingestion through Amazon S3.</li>
-            <li>Automated backups and workflows using Python, boto, and Apache Airflow; developed VBA-driven Excel
-              automation to streamline reporting.</li>
-            <li>Led backend development for a technology migration project using Python and Flask, integrating with an
-              AngularJS frontend.</li>
-          </ul>
-        </div>
+    <div class="course">
+      <div class="institution_dates">
+        <div class="institution">IIIT Delhi</div>
+        <div class="dates main_color">Jul 2023 - Aug 2023</div>
       </div>
-
-      <div class="exp-item fade-up">
-        <div class="exp-meta">
-          <span class="exp-date">Jul 2023 – Aug 2023</span>
-        </div>
-        <div class="exp-content">
-          <div class="exp-header">
-            <span class="exp-role">Research Assistant</span>
-            <span class="exp-company">IIIT Delhi</span>
-          </div>
-          <ul class="exp-desc">
-            <li>Worked with Dr. Saket Anand on vision-based perception for autonomous driving, focusing on traffic
-              signal and road pattern detection.</li>
-            <li>Experimented with and evaluated models using YOLOv5, PyTorch, and TensorFlow.</li>
-            <li>Supported data preparation, analysis, and performance assessment across different traffic and
-              environmental conditions.</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="exp-item fade-up">
-        <div class="exp-meta">
-          <span class="exp-date">May 2022 – Jul 2022</span>
-        </div>
-        <div class="exp-content">
-          <div class="exp-header">
-            <span class="exp-role">Summer Research Intern</span>
-            <span class="exp-company">Polytechnique Montréal</span>
-          </div>
-          <ul class="exp-desc">
-            <li>Collaborated on a network intrusion detection system using deep reinforcement learning.</li>
-            <li>Worked on a Deep Q-Learning approach and compared it with SVMs, Random Forests, and CNNs using
-              TensorFlow.</li>
-            <li>Conducted comparative analysis to evaluate model effectiveness and summarize key insights.</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="exp-item fade-up">
-        <div class="exp-meta">
-          <span class="exp-date">Jun 2021 – Aug 2021</span>
-        </div>
-        <div class="exp-content">
-          <div class="exp-header">
-            <span class="exp-role">Research Intern</span>
-            <span class="exp-company">IIT Delhi</span>
-          </div>
-          <ul class="exp-desc">
-            <li>Conducted market research to analyze factors driving product success and failure.</li>
-            <li>Developed a product case study applying STP framework and marketing mix to inform strategic decisions.
-            </li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="exp-item fade-up">
-        <div class="exp-meta">
-          <span class="exp-date">2021 – 2023</span>
-        </div>
-        <div class="exp-content">
-          <div class="exp-header">
-            <span class="exp-role">Content Strategist</span>
-            <span class="exp-company">Coding Ninjas</span>
-          </div>
-          <ul class="exp-desc">
-            <li>Led content strategy for the AI domain, overseeing a large portfolio across ML, NLP, and Computer
-              Vision.</li>
-            <li>Coordinated with writers and technical reviewers to ensure accuracy and consistency with industry
-              standards.</li>
-          </ul>
-        </div>
-      </div>
-
+      <div class="degree_major text-muted">Research Assistant</div>
+      <ul class="other_info text-muted">
+        <li>Worked with Dr. Saket Anand on vision-based perception for autonomous driving, focusing on traffic
+          signal and road pattern detection.</li>
+        <li>Experimented with and evaluated models using YOLOv5, PyTorch, and TensorFlow.</li>
+        <li>Supported data preparation, analysis, and performance assessment across different traffic and
+          environmental conditions.</li>
+      </ul>
     </div>
+
+    <div class="course">
+      <div class="institution_dates">
+        <div class="institution">Polytechnique Montréal</div>
+        <div class="dates main_color">May 2022 - Jul 2022</div>
+      </div>
+      <div class="degree_major text-muted">Summer Research Intern</div>
+      <ul class="other_info text-muted">
+        <li>Collaborated on a network intrusion detection system using deep reinforcement learning.</li>
+        <li>Worked on a Deep Q-Learning approach and compared it with SVMs, Random Forests, and CNNs using
+          TensorFlow.</li>
+        <li>Conducted comparative analysis to evaluate model effectiveness and summarize key insights.</li>
+      </ul>
+    </div>
+
+    <div class="course">
+      <div class="institution_dates">
+        <div class="institution">IIT Delhi</div>
+        <div class="dates main_color">Jun 2021 - Aug 2021</div>
+      </div>
+      <div class="degree_major text-muted">Research Intern</div>
+      <ul class="other_info text-muted">
+        <li>Conducted market research to analyze factors driving product success and failure.</li>
+        <li>Developed a product case study applying STP framework and marketing mix to inform strategic decisions.</li>
+      </ul>
+    </div>
+
+    <div class="course">
+      <div class="institution_dates">
+        <div class="institution">Coding Ninjas</div>
+        <div class="dates main_color">2021 - 2023</div>
+      </div>
+      <div class="degree_major text-muted">Content Strategist</div>
+      <ul class="other_info text-muted">
+        <li>Led content strategy for the AI domain, overseeing a large portfolio across ML, NLP, and Computer
+          Vision.</li>
+        <li>Coordinated with writers and technical reviewers to ensure accuracy and consistency with industry
+          standards.</li>
+      </ul>
+    </div>
+
   </section>
 
-  <!-- ─── WORK ─── -->
-  <section class="section" id="work">
-    <div class="section-aside">
-      <span class="section-num">03</span>
-      <span class="section-tag">WORK</span>
-    </div>
-    <div class="section-body">
+  <!-- ─── PROJECTS ─── -->
+  <section class="projects">
+    <h3 class="section-title main_color">Projects</h3>
+    <h6 class="section-subtitle text-muted">selected work — full source on github</h6>
 
-      <div class="project-grid">
-
-        <div class="project-card fade-up">
-          <span class="project-tag">CV / Thesis</span>
-          <h3 class="project-title">Social Distancing Violation Detection</h3>
-          <p class="project-desc">
-            Uses YOLO and OpenCV to detect social distancing violations in CCTV footage by identifying people and
-            measuring distances in real time. Supports monitoring and enforcement in public spaces.
-          </p>
-          <div class="project-links">
-            <a href="https://github.com/shivangdubey/Social-Distancing-Violation-System" target="_blank">Code ↗</a>
-            <a href="https://github.com/shivangdubey/Social-Distancing-Violation-System/blob/main/Minor_Thesis.pdf"
-              target="_blank">Thesis ↗</a>
-          </div>
-        </div>
-
-        <div class="project-card fade-up">
-          <span class="project-tag">Deep Learning</span>
-          <h3 class="project-title">COVID-19 Detector</h3>
-          <p class="project-desc">
-            Applies a Convolutional Neural Network to classify COVID-19 cases from lung X-ray images, improving
-            performance through gradient descent optimization. Enables accurate and rapid diagnosis.
-          </p>
-          <div class="project-links">
-            <a href="https://github.com/shivangdubey/COVID-19_detector" target="_blank">Code ↗</a>
-          </div>
-        </div>
-
-        <div class="project-card fade-up">
-          <span class="project-tag">Web Scraping</span>
-          <h3 class="project-title">Online Grocery Store Scraper</h3>
-          <p class="project-desc">
-            Scrapes product data from Bigbasket.com — categories, descriptions, quantities, brands, prices, and images —
-            storing it in a reusable structured format for analysis and research.
-          </p>
-          <div class="project-links">
-            <a href="https://github.com/shivangdubey/Grocery_Store_Scraper" target="_blank">Code ↗</a>
-          </div>
-        </div>
-
+    <div class="project">
+      <div class="section-1">
+        <span class="project-title">Social Distancing Violation Detection,</span>
+        <span class="project-kind text-muted">CV / Thesis</span>
       </div>
-
+      <div class="section-2 text-muted">
+        Uses YOLO and OpenCV to detect social distancing violations in CCTV footage by identifying people and
+        measuring distances in real time. Supports monitoring and enforcement in public spaces.
+      </div>
+      <div class="section-3">
+        <a href="https://github.com/shivangdubey/Social-Distancing-Violation-System" target="_blank"
+          rel="noopener">code</a>
+        <a href="https://github.com/shivangdubey/Social-Distancing-Violation-System/blob/main/Minor_Thesis.pdf"
+          target="_blank" rel="noopener">thesis</a>
+      </div>
     </div>
+
+    <div class="project">
+      <div class="section-1">
+        <span class="project-title">COVID-19 Detector,</span>
+        <span class="project-kind text-muted">Deep Learning</span>
+      </div>
+      <div class="section-2 text-muted">
+        Applies a Convolutional Neural Network to classify COVID-19 cases from lung X-ray images, improving
+        performance through gradient descent optimization. Enables accurate and rapid diagnosis.
+      </div>
+      <div class="section-3">
+        <a href="https://github.com/shivangdubey/COVID-19_detector" target="_blank" rel="noopener">code</a>
+      </div>
+    </div>
+
+    <div class="project">
+      <div class="section-1">
+        <span class="project-title">Online Grocery Store Scraper,</span>
+        <span class="project-kind text-muted">Web Scraping</span>
+      </div>
+      <div class="section-2 text-muted">
+        Scrapes product data from Bigbasket.com — categories, descriptions, quantities, brands, prices, and images —
+        storing it in a reusable structured format for analysis and research.
+      </div>
+      <div class="section-3">
+        <a href="https://github.com/shivangdubey/Grocery_Store_Scraper" target="_blank" rel="noopener">code</a>
+      </div>
+    </div>
+
   </section>
 
   <!-- ─── SKILLS ─── -->
-  <section class="section" id="skills">
-    <div class="section-aside">
-      <span class="section-num">04</span>
-      <span class="section-tag">SKILLS</span>
-    </div>
-    <div class="section-body">
-      <div class="skills-wrap fade-up">
-        <span class="skill-tag">Machine Learning</span>
-        <span class="skill-tag">Computer Vision</span>
-        <span class="skill-tag">Deep Learning</span>
-        <span class="skill-tag">Python</span>
-        <span class="skill-tag">Data Analysis</span>
-        <span class="skill-tag">NLP</span>
-        <span class="skill-tag">Medical Imaging</span>
-        <span class="skill-tag">Web Scraping</span>
-        <span class="skill-tag">PostgreSQL</span>
-        <span class="skill-tag">ETL Pipelines</span>
-        <span class="skill-tag">Apache Airflow</span>
-        <span class="skill-tag">PyTorch</span>
-        <span class="skill-tag">TensorFlow</span>
-        <span class="skill-tag">Flask</span>
-        <span class="skill-tag">Amazon S3</span>
-      </div>
-
-      <div class="interests-wrap fade-up">
-        <h3 class="interests-heading">BEYOND CODE</h3>
-        <div class="interests-row">
-          <span class="interest-item">🏋️ Weightlifting</span>
-          <span class="interest-item">🎵 Music</span>
-          <span class="interest-item">📱 Gadgets</span>
-          <span class="interest-item">🧪 Perfumery</span>
-        </div>
-      </div>
+  <section class="skills">
+    <h3 class="section-title main_color">Skills</h3>
+    <h6 class="section-subtitle text-muted">tools and methods i work with</h6>
+    <div class="tags_navigation">
+      <span class="tag">Machine Learning</span>
+      <span class="tag">Computer Vision</span>
+      <span class="tag">Deep Learning</span>
+      <span class="tag">Python</span>
+      <span class="tag">Data Analysis</span>
+      <span class="tag">NLP</span>
+      <span class="tag">Medical Imaging</span>
+      <span class="tag">Web Scraping</span>
+      <span class="tag">PostgreSQL</span>
+      <span class="tag">ETL Pipelines</span>
+      <span class="tag">Apache Airflow</span>
+      <span class="tag">PyTorch</span>
+      <span class="tag">TensorFlow</span>
+      <span class="tag">Flask</span>
+      <span class="tag">Amazon S3</span>
     </div>
   </section>
 
   <!-- ─── AMBIENT AUDIO PLAYER ─── -->
-  <div class="audio-player" id="audioPlayer">
-    <button class="audio-btn" id="audioBtn" aria-label="Unmute ambient music">
+  <div class="audio-player">
+    <button class="audio-btn" id="audioBtn" type="button" aria-label="Play ambient music">
       <span class="audio-bars" aria-hidden="true">
         <span></span><span></span><span></span><span></span>
       </span>
-      <span class="audio-label" id="audioLabel">AMBIENT</span>
+      <span class="audio-label" id="audioLabel">ambient</span>
     </button>
     <!-- YT player: off-screen but real size so YouTube allows playback -->
     <div id="ytPlayer" style="position:fixed;left:-9999px;top:-9999px;width:200px;height:113px;pointer-events:none;">
@@ -325,130 +322,54 @@
 
   <!-- ─── FOOTER ─── -->
   <footer class="footer">
-    <span class="footer-copy">© <span id="year"></span> Shivang Dubey</span>
-    <div class="footer-links">
-      <a href="mailto:shivangdubey2001@gmail.com">Email</a>
-      <a href="https://www.linkedin.com/in/shivangdubey8/" target="_blank">LinkedIn</a>
-      <a href="https://github.com/shivangdubey" target="_blank">GitHub</a>
-    </div>
+    <span>
+      Copyright (c) <span id="year"></span>, Shivang Dubey, theme after
+      <a href="https://github.com/hadisinaee/avicenna" target="_blank" rel="noopener">Avicenna (MIT)</a>
+    </span>
   </footer>
 
   <script>
-    // ── Year ──
+    // ── Year ─────────────────────────────────────────────
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // ── Theme ──────────────────────────────────────────────
-    const root = document.documentElement;
-    const themeBtn = document.getElementById('themeBtn');
-    const metaThemeColor = document.getElementById('metaThemeColor');
+    // ── Theme ────────────────────────────────────────────
+    var root = document.documentElement;
+    var themeToggle = document.getElementById('themeToggle');
+    var metaThemeColor = document.getElementById('metaThemeColor');
 
-    // Boot: read saved preference (default dark)
-    (function () {
-      var t = localStorage.getItem('sd-theme') || 'dark';
-      root.setAttribute('data-theme', t);
-    })();
+    function syncToggle(t) {
+      themeToggle.setAttribute('aria-label',
+        t === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
+      metaThemeColor.content = t === 'dark' ? '#0e1114' : '#ffffff';
+    }
 
-    function getTheme() { return root.getAttribute('data-theme'); }
     function setTheme(t) {
       root.setAttribute('data-theme', t);
-      localStorage.setItem('sd-theme', t);
-      syncBtn(t);
-      metaThemeColor.content = t === 'dark' ? '#111111' : '#f4f3ef';
+      try { localStorage.setItem('sd-theme', t); } catch (e) { }
+      syncToggle(t);
     }
 
-    function syncBtn(t) {
-      var iconEl = themeBtn.querySelector('.theme-btn-icon');
-      if (!iconEl) return;
-      iconEl.textContent = t === 'dark' ? '☀' : '☾';
-      themeBtn.setAttribute('aria-label', t === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
-    }
+    syncToggle(root.getAttribute('data-theme'));
 
-    // Init button state
-    syncBtn(getTheme());
-
-    themeBtn.addEventListener('click', function () {
-      var next = getTheme() === 'dark' ? 'light' : 'dark';
-
-      // Immersive ripple from button center
-      var rect = themeBtn.getBoundingClientRect();
-      var cx = rect.left + rect.width / 2;
-      var cy = rect.top + rect.height / 2;
-      var ripple = document.createElement('div');
-      ripple.className = 'theme-ripple';
-      ripple.style.cssText =
-        'left:' + cx + 'px;top:' + cy + 'px;' +
-        'background:' + (next === 'light' ? '#f4f3ef' : '#111111') + ';';
-      document.body.appendChild(ripple);
-
-      // Trigger expand on next frame
-      requestAnimationFrame(function () {
-        ripple.classList.add('theme-ripple--go');
-      });
-
-      // Swap theme at ripple peak (280 ms in)
-      setTimeout(function () { setTheme(next); }, 280);
-
-      // Remove ripple after animation completes
-      setTimeout(function () {
-        if (ripple.parentNode) ripple.parentNode.removeChild(ripple);
-      }, 700);
+    themeToggle.addEventListener('click', function () {
+      setTheme(root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
     });
 
-    // ── Custom Cursor (desktop only) ──────────────────────
-    var cursor = document.getElementById('cursor');
-    if (window.matchMedia('(hover: hover)').matches) {
-      document.addEventListener('mousemove', function (e) {
-        cursor.style.transform = 'translate(' + e.clientX + 'px,' + e.clientY + 'px)';
-      });
-      document.querySelectorAll('a, button').forEach(function (el) {
-        el.addEventListener('mouseenter', function () { cursor.classList.add('cursor-large'); });
-        el.addEventListener('mouseleave', function () { cursor.classList.remove('cursor-large'); });
-      });
+    // Follow the OS until the visitor makes an explicit choice
+    if (window.matchMedia) {
+      var mq = window.matchMedia('(prefers-color-scheme: dark)');
+      var onSchemeChange = function (e) {
+        var saved = null;
+        try { saved = localStorage.getItem('sd-theme'); } catch (err) { }
+        if (saved) return;
+        root.setAttribute('data-theme', e.matches ? 'dark' : 'light');
+        syncToggle(root.getAttribute('data-theme'));
+      };
+      if (mq.addEventListener) mq.addEventListener('change', onSchemeChange);
+      else if (mq.addListener) mq.addListener(onSchemeChange);
     }
-
-    // ── Menu ─────────────────────────────────────────────
-    var menuBtn = document.getElementById('menuBtn');
-    var menuClose = document.getElementById('menuClose');
-    var menuOverlay = document.getElementById('menuOverlay');
-    var navEl = document.getElementById('nav');
-
-    function openMenu() {
-      menuOverlay.classList.add('open');
-      menuOverlay.setAttribute('aria-hidden', 'false');
-      document.body.classList.add('menu-open');
-    }
-    function closeMenu() {
-      menuOverlay.classList.remove('open');
-      menuOverlay.setAttribute('aria-hidden', 'true');
-      document.body.classList.remove('menu-open');
-    }
-
-    menuBtn.addEventListener('click', openMenu);
-    menuClose.addEventListener('click', closeMenu);
-    document.querySelectorAll('.menu-link').forEach(function (link) {
-      link.addEventListener('click', closeMenu);
-    });
-    document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape') closeMenu();
-    });
-
-    // ── Scroll Fade-In ───────────────────────────────────
-    var fadeEls = document.querySelectorAll('.fade-up');
-    var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          io.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.08 });
-    fadeEls.forEach(function (el) { io.observe(el); });
-
-    // ── Nav blur on scroll ───────────────────────────────
-    window.addEventListener('scroll', function () {
-      navEl.classList.toggle('nav-scrolled', window.scrollY > 60);
-    }, { passive: true });
   </script>
+
   <script>
     // ── Ambient Audio ────────────────────────────────────────────
     // Browsers block audio without user gesture. Strategy:
@@ -472,7 +393,7 @@
 
     function createPlayer() {
       playerCreated = true;
-      audioLabel.textContent = 'LOADING…';
+      audioLabel.textContent = 'loading…';
       ytPlayer = new YT.Player('ytPlayer', {
         height: '113',
         width: '200',
@@ -498,11 +419,13 @@
             if (e.data === YT.PlayerState.PLAYING) {
               isPlaying = true;
               audioBtn.classList.add('playing');
-              audioLabel.textContent = 'PLAYING';
+              audioLabel.textContent = 'playing';
+              audioBtn.setAttribute('aria-label', 'Pause ambient music');
             } else if (e.data === YT.PlayerState.PAUSED) {
               isPlaying = false;
               audioBtn.classList.remove('playing');
-              audioLabel.textContent = 'AMBIENT';
+              audioLabel.textContent = 'ambient';
+              audioBtn.setAttribute('aria-label', 'Play ambient music');
             } else if (e.data === YT.PlayerState.ENDED) {
               ytPlayer.playVideo(); // loop fallback
             }
